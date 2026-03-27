@@ -1,4 +1,4 @@
-const Control = require('../src/control-trinha');
+const Control = require('../src/music-control');
 const cor = { azul: '\x1b[36m', verde: '\x1b[32m', reset: '\x1b[0m' };
 
 async function executar(nome, acao) {
@@ -18,10 +18,10 @@ async function trinha() {
   await executar('3. Anterior', () => Control.previous());
   await executar('4. + Volume', () => Control.volumeUp());
   await executar('5. - Volume', () => Control.volumeDown());
-  
+
   const atual = await Control.current();
   await executar('6. Música Atual', () => console.log('   📻:', atual || 'Nada'));
-  
+
   console.log('🎉 TRINHA FINALIZADA!');
 }
 

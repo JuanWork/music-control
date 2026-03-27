@@ -1,5 +1,5 @@
 const { exec } = require('child_process');
-class ControlTrinha {
+class MusicControl {
   static playPause() { return this._exec('rhythmbox-client --play-pause'); }
   static next() { return this._exec('rhythmbox-client --next'); }
   static previous() { return this._exec('rhythmbox-client --previous'); }
@@ -12,5 +12,7 @@ class ControlTrinha {
     });
   }
 }
-module.exports = ControlTrinha;
+
+const creatLogger = require('./aspects/loggs');
+module.exports =creatLogger(MusicControl);
 

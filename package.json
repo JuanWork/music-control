@@ -1,10 +1,10 @@
 {
-  "name": "music-control",
+  "name": "MusicControl",
   "version": "1.0.0",
   "description": "Controle de música nativo com Node.js (Rhythmbox) – base para POA",
-  "main": "src/control-trinha.js",
+  "main": "src/music-control.js",
   "scripts": {
-    "test": "node tests/script-trinha.js"
+    "test": "node tests/test-trinha.js"
   },
   "keywords": ["music", "rhythmbox", "poa", "nodejs", "control"],
   "author": "Juan",
