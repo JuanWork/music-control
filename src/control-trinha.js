@@ -1,4 +1,6 @@
 const { exec } = require('child_process');
+const aspectHumor = require('./aspects/logs');
+
 class MusicControl {
   static playPause() { return this._exec('rhythmbox-client --play-pause'); }
   static next() { return this._exec('rhythmbox-client --next'); }
@@ -13,6 +15,26 @@ class MusicControl {
   }
 }
 
-const creatLogger = require('./aspects/loggs');
-module.exports =creatLogger(MusicControl);
+// Wrapper que adiciona logs automáticos
+const creatLogger = (MusicControl, aspectHumor) => {
+  return new Proxy(MusicControl, {
+    get(target, prop) {
+      const original = target[prop];
+      if (typeof original === 'function') {
+        return async function(...args) {
+          try {
+            const result = await original.apply(target, args);
+            aspectHumor('sucesso');
+            return result;
+          } catch (err) {
+            aspectHumor('nó');
+            throw err;
+          }
+        };
+      }
+      return original;
+    }
+  });
+};
 
+module.exports = creatLogger(MusicControl, aspectHumor);

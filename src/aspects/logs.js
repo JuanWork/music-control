@@ -61,3 +61,4 @@ aspectHumor('sucesso');
 
 
 
+module.exports = aspectHumor;
