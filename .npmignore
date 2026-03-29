@@ -1,0 +1,18 @@
+# Arquivos temporários
+*.un~
+*.swp
+*~
+
+# Dados locais (não enviar logs pessoais)
+src/data/logs.json
+
+# Testes (opcional - se não quiser incluir)
+# tests/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
