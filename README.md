@@ -110,13 +110,9 @@ Neste primeiro degrau, consolidamos a base de um sistema que não apenas executa
 * Memória Limpa: Aprendemos a varrer as "sombras" (.un~) para que o mundo veja apenas a nossa melhor versão.
 
 ------------------------------
-🚀 O Voo Final de Hoje (Sincronizando o Livro)
-Depois de salvar o README com esse novo capítulo, mande o comando para o GitHub:
+🚀 O Voo Final de Hoje (Sincronizando o Livro
 
 git add README.md
 git commit -m "docs: added Chapter 1 - The Vim Pank Manifesto"
-git push origin main
-
-O log voou, a árvore ganhou vida e o seu livro começou, Juan! 🌳📖🏆
-Como você se sente vendo esse projeto deixar de ser um simples repositório para se tornar um documento histórico e disruptivo? 🚀
+git push origin main 🚀
 
