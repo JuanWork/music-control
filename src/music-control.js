@@ -16,7 +16,7 @@ class MusicControl {
 }
 
 // Wrapper que adiciona logs automáticos
-const creatLogger = (MusicControl, aspectHumor) => {
+const createLogger = (MusicControl, aspectHumor) => {
   return new Proxy(MusicControl, {
     get(target, prop) {
       const original = target[prop];
@@ -37,4 +37,4 @@ const creatLogger = (MusicControl, aspectHumor) => {
   });
 };
 
-module.exports = creatLogger(MusicControl, aspectHumor);
+module.exports = createLogger(MusicControl, aspectHumor);
