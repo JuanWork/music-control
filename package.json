@@ -1,28 +1,20 @@
 {
-  "name": "music-control",
-  "version": "1.0.0",
-  "description": "Controle de música nativo com Node.js e POA – Humanizando o desenvolvimento",
-  "main": "src/control-trinha.js",
-  "scripts": {
-    "setup": "mkdir -p src/data && echo '{\"session_logs\": []}' > src/data/logs.json",
-    "test": "node src/aspects/logs.js",
-    "start": "node src/control-trinha.js"
-  },
-  "keywords": [
-    "music",
-    "rhythmbox",
-    "poa",
-    "nodejs",
-    "automation",
-    "vim"
-  ],
-  "author": "JuanWork",
+  "name": "vimpank-ecosystem",
+  "private": true,
+  "author": "Juan Carlos",
   "license": "MIT",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JuanWork/music-control.git"
-  },
-  "engines": {
-    "node": ">=18"
   }
 }

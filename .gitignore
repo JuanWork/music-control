@@ -1,7 +1,38 @@
+# Dependências
 node_modules/
-*.log
+npm-debug.log*
+package-lock.json
+
+# Ambiente
 .env
+.env.local
 .DS_Store
-*.un~
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
 *~
+
+# Build
+dist/
+build/
+coverage/
+
+# Banco de dados
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Backup
+*.backup
+*.bak
+
+# Additional from local
+*.un~
 src/data/logs.json
