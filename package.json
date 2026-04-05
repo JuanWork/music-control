@@ -3,23 +3,16 @@
   "private": true,
   "author": "Juan Carlos",
   "license": "MIT",
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
+  "workspaces": ["apps/*", "packages/*"],
   "scripts": {
+    "start": "node apps/music-control/src/music-control.js",
     "test": "jest"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "jest": "^30.3.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JuanWork/music-control.git"
-=======
-    "jest": "^30.3.0",
-    "node-id3": "^0.2.9"
->>>>>>> 730d3db (chore:limpeza de arquivos inicial.)
   }
 }
