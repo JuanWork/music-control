@@ -11,10 +11,15 @@
     "test": "jest"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "jest": "^30.3.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JuanWork/music-control.git"
+=======
+    "jest": "^30.3.0",
+    "node-id3": "^0.2.9"
+>>>>>>> 730d3db (chore:limpeza de arquivos inicial.)
   }
 }
