@@ -3,7 +3,10 @@
   "private": true,
   "author": "Juan Carlos",
   "license": "MIT",
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "start": "node apps/music-control/src/music-control.js",
     "test": "jest"
@@ -16,3 +19,4 @@
     "url": "git+https://github.com/JuanWork/music-control.git"
   }
 }
+
