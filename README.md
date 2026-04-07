@@ -1,47 +1,40 @@
-# 🎵 Vim Pank - Music Control (Monorepo Edition) 🧬
+# 🎵 Vim Pank - Music Control & Academy 🧬
 
-*"Ei Linux, sou seu parente."*
+*"Ei Linux, sou seu parente. E agora, sou seu Arquiteto."*
 
-[![License: MIT](https://shields.io)](https://opensource.org)
-[![Node.js](https://shields.io)](https://nodejs.org)
-[![Philosophy](https://shields.io)](#-filosofia-central)
-[![Database](https://shields.io)](./packages/db)
-[![Ethical](https://shields.io)]()
+[![Tests](https://shields.io)](https://jestjs.io)
+[![Security](https://shields.io)](#-leis-de-segurança)
+[![Architecture](https://shields.io)](#-arquitetura)
 
 ---
 
-## 🏗️ O Ecossistema Colaborativo (Monorepo)
+## 🏗️ O Ecossistema Vimpank (Monorepo)
 
-O **Vim Pank** evoluiu para uma estrutura modular onde cada parte é um especialista que serve ao todo. No nosso time, quem sabe mais é servo de todos.
+O **Vim Pank** deixou de ser apenas um controle de música para se tornar um ecossistema fullstack completo. Aqui, o código é tratado como engenharia e a segurança é o nosso alicerce.
 
 ### 🤝 Os Integrantes do Time:
-- **`packages/core` (O Menestrel):** Especialista na herança ancestral (`child_process`). Conversa diretamente com o Kernel para controlar seu player (Rhythmbox, Spotify, etc).
-- **`packages/db` (VimMemore):** O guardião da memória. Utiliza **SQLite3** para persistência ética e local-first. Registra "nós" e "conquistas" sem nunca subir para a nuvem.
-- **`packages/cli` (O Maestro):** Interface de comando que une a precisão técnica do Vim com a sensibilidade humana.
-- **IA (O Navegador):** Atua de mãos dadas para agregar velocidade e automatizar as tarefas repetitivas.
+
+- **`apps/vimpank-academy` (O Professor):** Servidor Express robusto que gerencia cursos. É aqui que aplicamos nossas leis de backend seguro.
+- **`apps/music-control` (O Maestro):** O controle original de música integrado ao ecossistema.
+- **`packages/core` (O Menestrel):** A inteligência que conversa com o Kernel via `child_process`.
+- **`packages/library` (VimMemore):** O guardião da persistência usando **SQLite3**.
 
 ---
 
-## 🎯 Filosofia "Pank"
+## 🛡️ Nossas Leis de Segurança (The Pragmatic Way)
 
-> *"Programar não é só digitar código. É um fluxo de emoções, ritmo e criatividade. O Vim Pank reconhece isso e te acompanha na jornada."*
+No Vimpank, não deixamos **Janelas Quebradas**. Todo código de backend segue rigorosamente:
 
-O nome vem da simbiose:
-- **Vim Dev:** A ferramenta afiada, técnica e precisa.
-- **Vim Comum:** O ser humano que sente, cria e flui.
-
-**"Se perde o time, perde todo mundo. Se ganha o time, ganha o time todo."**
+1. **Sanitização Universal:** Nenhuma entrada (input) entra no sistema sem ser limpa por Regex.
+2. **Minimização de Superfície:** Validamos tipos (`typeof`), tamanhos (`length`) e estados antes de qualquer processamento.
+3. **Resiliência:** Uso obrigatório de `try-catch` para garantir que o servidor nunca morra diante de vândalos.
+4. **Diagnóstico Contínuo:** Se não tem teste, não existe. Rodamos o scanner (Jest) para garantir 100% de integridade.
 
 ---
 
-## 🚀 Como Rodar o Ensaio (Dry-Run)
+## 🚀 Como Iniciar o Vimpank
 
-Para entender como o time se comunica sem alterar nada no seu sistema, use o nosso script de ensaio:
-
+### Para o Desenvolvedor (Modo Diagnóstico)
+Para validar todo o ecossistema e ver os **20 testes de diagnóstico** brilhando em verde:
 ```bash
-# Clone o repositório
-git clone https://github.com
-
-# Entre na pasta e rode o ensaio
-node dry-run.js
-
+npm test
