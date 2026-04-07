@@ -1,8 +1,8 @@
 module.exports = {
-  projects: [
-    "<rootDir>/packages/*",
-    "<rootDir>/apps/*"
-   ],
+ // projects: [
+  //  "<rootDir>/packages/*",
+  //  "<rootDir>/apps/*"
+  // ],
 
   collectCoverageFrom: [
     '**/src/**/*.js',

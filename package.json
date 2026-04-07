@@ -12,11 +12,14 @@
     "test": "jest"
   },
   "devDependencies": {
-    "jest": "^30.3.0"
+    "jest": "^30.3.0",
+    "supertest": "^7.2.2"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JuanWork/music-control.git"
+  },
+  "dependencies": {
+    "expree": "^2.1.0"
   }
 }
-
