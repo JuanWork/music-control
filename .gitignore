@@ -36,3 +36,4 @@ logs/
 # Additional from local
 *.un~
 src/data/logs.json
+*.bak*
