@@ -1,0 +1,198 @@
+openapi: 3.0.0
+info:
+  title: Vimpank Academy API
+  version: 1.0.0
+  description: API do ecossistema VimAcademe – Cursos, Atores, Lições
+servers:
+  - url: http://localhost:3000/api
+    description: Servidor local de desenvolvimento
+components:
+  schemas:
+    Curso:
+      type: object
+      properties:
+        id:
+          type: integer
+          minimum: 0
+          exclusiveMinimum: true
+        titulo:
+          type: string
+          minLength: 3
+          maxLength: 100
+        descricao:
+          type: string
+          maxLength: 500
+          default: ""
+      required:
+        - id
+        - titulo
+    CriarCurso:
+      type: object
+      properties:
+        titulo:
+          type: string
+          minLength: 3
+          maxLength: 100
+        descricao:
+          type: string
+          maxLength: 500
+          default: ""
+      required:
+        - titulo
+    AtualizarCurso:
+      type: object
+      properties:
+        titulo:
+          type: string
+          minLength: 3
+          maxLength: 100
+        descricao:
+          type: string
+          maxLength: 500
+          default: ""
+  parameters: {}
+paths:
+  /cursos:
+    get:
+      summary: Listar cursos
+      tags:
+        - Cursos
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+          description: Termo de busca
+        - name: sort
+          in: query
+          schema:
+            type: string
+            enum:
+              - id
+              - titulo
+          description: Campo de ordenação
+        - name: order
+          in: query
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+          description: Direção da ordenação
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+          description: Número da página
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+          description: Itens por página
+      responses:
+        "200":
+          description: Lista paginada de cursos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  page:
+                    type: integer
+                  limit:
+                    type: integer
+                  totalPages:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Curso"
+    post:
+      summary: Criar novo curso
+      tags:
+        - Cursos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CriarCurso"
+      responses:
+        "201":
+          description: Curso criado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Curso"
+        "400":
+          description: Dados inválidos
+  /cursos/{id}:
+    get:
+      summary: Buscar curso por ID
+      tags:
+        - Cursos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID do curso
+      responses:
+        "200":
+          description: Curso encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Curso"
+        "404":
+          description: Curso não encontrado
+    put:
+      summary: Atualizar curso
+      tags:
+        - Cursos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID do curso
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AtualizarCurso"
+      responses:
+        "200":
+          description: Curso atualizado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Curso"
+        "400":
+          description: Dados inválidos
+        "404":
+          description: Curso não encontrado
+    delete:
+      summary: Remover curso
+      tags:
+        - Cursos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID do curso
+      responses:
+        "204":
+          description: Curso removido com sucesso
+        "404":
+          description: Curso não encontrado
