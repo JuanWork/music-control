@@ -1,0 +1,12 @@
+{
+  "name": "@vimpank/fundamentos-estudo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Estande de tiro para lógica, algoritmos e estruturas de dados",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

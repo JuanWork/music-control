@@ -1,0 +1,223 @@
+
+openapi: 3.0.0
+info:
+  title: Vimpank Academy API
+  version: 1.0.0
+  description: API do ecossistema VimAcademy – Gestão de Cursos e Acervo Bibliográfico
+servers:
+  - url: http://localhost:3000/api
+    description: Servidor local
+components:
+  schemas:
+    Curso:
+      type: object
+      properties:
+        id:
+          type: integer
+          minimum: 0
+          exclusiveMinimum: true
+          example: 1
+        titulo:
+          type: string
+          minLength: 3
+          maxLength: 100
+          example: Ecossistema Vimpank
+        descricao:
+          type: string
+          maxLength: 500
+          example: Nossa miragem de sistema
+        autor:
+          type: string
+          example: Juan Carlos
+        edicao:
+          type: string
+          example: 2ª Edição
+        isbn_impresso:
+          type: string
+          nullable: true
+          example: "978-85-0000-000-0"
+        paginas:
+          type: integer
+          nullable: true
+          example: 400
+      required:
+        - id
+        - titulo
+    CriarCurso:
+      type: object
+      properties:
+        titulo:
+          type: string
+          minLength: 3
+          maxLength: 100
+        descricao:
+          type: string
+          maxLength: 500
+        autor:
+          type: string
+        edicao:
+          type: string
+        isbn_impresso:
+          type: string
+          nullable: true
+        paginas:
+          type: integer
+          nullable: true
+      required:
+        - titulo
+    AtualizarCurso:
+      type: object
+      properties:
+        titulo:
+          type: string
+          minLength: 3
+          maxLength: 100
+        descricao:
+          type: string
+          maxLength: 500
+        autor:
+          type: string
+        edicao:
+          type: string
+        isbn_impresso:
+          type: string
+          nullable: true
+        paginas:
+          type: integer
+          nullable: true
+  parameters: {}
+paths:
+  /cursos:
+    get:
+      summary: Listar cursos
+      tags:
+        - Cursos
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+          description: Termo de busca (Título, Descrição ou Autor)
+        - name: sort
+          in: query
+          schema:
+            type: string
+            enum: [id, titulo]
+        - name: order
+          in: query
+          schema:
+            type: string
+            enum: [asc, desc]
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+      responses:
+        "200":
+          description: Lista paginada de cursos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  page:
+                    type: integer
+                  limit:
+                    type: integer
+                  totalPages:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Curso"
+    post:
+      summary: Criar novo curso
+      tags:
+        - Cursos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CriarCurso"
+      responses:
+        "201":
+          description: Curso criado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Curso"
+        "400":
+          description: Erro de validação ou sanitização
+  /cursos/{id}:
+    get:
+      summary: Buscar curso por ID
+      tags:
+        - Cursos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Curso encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Curso"
+        "404":
+          description: Curso não encontrado
+    put:
+      summary: Atualizar curso
+      tags:
+        - Cursos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AtualizarCurso"
+      responses:
+        "200":
+          description: Curso atualizado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Curso"
+        "400":
+          description: Dados inválidos
+        "404":
+          description: Curso não encontrado
+    delete:
+      summary: Remover curso
+      tags:
+        - Cursos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Curso removido com sucesso
+        "404":
+          description: Curso não encontrado
+

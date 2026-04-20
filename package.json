@@ -1,0 +1,36 @@
+{
+  "name": "ecossistema-vimpank",
+  "private": true,
+  "author": "Juan Carlos",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "node apps/Vimpank-Academy/src/server-express.js",
+    "dev": "nodemon apps/Vimpank-Academy/src/server-express.js",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "lab": "jest packages/fundamentos-estudo --watch"
+  },
+  "devDependencies": {
+    "@asteasolutions/zod-to-openapi": "^8.5.0",
+    "jest": "^30.3.0",
+    "nodemon": "^3.1.14",
+    "openapi3-ts": "^4.5.0",
+    "supertest": "^7.2.2"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "better-sqlite3": "^12.8.0",
+    "cors": "^2.8.6",
+    "express": "^4.22.1",
+    "express-rate-limit": "^8.3.2",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "swagger-ui-express": "^5.0.1",
+    "yaml": "^2.8.3",
+    "zod": "^4.3.6"
+  }
+}
